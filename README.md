@@ -14,7 +14,7 @@ The **"main"** array is used to specify some of the essential versions. These ha
 
 The **"blacklist"** array is used to blacklist a plugin which is either weirdly displayed (ie: "APIExample" and such...), or improperly versioned. For some reason, many plugin devs forget to update their assembly versions which causes the script to think that the plugin is outdated, when in reality it might be fine.
 
-*Here is an example:*
+***Here is an example:***
 
 ![CodeRedCallouts' Bad Assembly Version](https://i.darkvypr.com/badplugin1.jpg)
 ![CodeRedCallouts' Version](https://i.darkvypr.com/badplugin2.jpg)
@@ -38,3 +38,13 @@ In the **ids.json** file, the numbers next to all of the plugins correspond to t
 ![LSPDFR ID location](https://i.darkvypr.com/lspdfr-id.jpeg)
 
 Adding an ID is pretty self explanitory, just make sure that the plugin name is the same as the .dll name.
+
+# RAGENativeUI Versions
+
+This script will also attempt to find the version of RNUI installed. It kind works?... It requires a plugin to send the version inside of the log however. Popular callouts like Section136 and etc do this so it works 60% of the time.
+
+# Results
+
+Here is one of the various outputs you will see:
+
+![Example Check](https://i.darkvypr.com/example-check.jpg)
