@@ -11,6 +11,7 @@ The **"main"** array is used to specify some of the essential versions. These ha
 The **"blacklist"** array is used to blacklist a plugin which is either weirdly displayed (ie: "APIExample" and such...), or improperly versioned. For some reason, many plugin devs forget to update their assembly versions which causes the script to think that the plugin is outdated, when in reality it might be fine.
 
 *Here is an example:*
+
 ![CodeRedCallouts' Bad Assembly Version](https://i.darkvypr.com/badplugin1.jpg)
 ![CodeRedCallouts' Version](https://i.darkvypr.com/badplugin2.jpg)
 
