@@ -212,9 +212,9 @@ ok = []
 
 # Searches for versions according to the LCPDFR.com API, and compares them against the installed version.
 for i in pluginVersions:
+    print(i)
     if i[0] in badPlugins:
         continue
-    print(i)
     if i[0] in config["hardcoded"] or i[0] in config["blacklist"]:
         if i[0] in config["hardcoded"]:
             latestVersion = config["hardcoded"][i[0]]
