@@ -1,3 +1,13 @@
+# Setting It Up
+
+This program is relatively easy to set up. I personally just use it inside of VS code. If you don't know what VSC is/how to use it, that is on you to figure out. Once you have it opened in VS code, you can use the terminal to install these: `pip install requests packaging`.
+
+If you have any further questions, make an issue here, or dm me on my LSPDFR profile. I will be adding to this readme with any steps that I forgot to state on setting this program up.
+
+# Updating This Script
+
+As I add new things, and develop new features to this program, you should naturally update it. Ironically, this update checker doesn't have an update checker, so you may need to check here periodically. I will eventually impliment some sort of version checker for this script; For now, it's just Coming Soon™...
+
 # Checking a Log
 
 To use this, all you have to do is place a **RagePluginHook.log** file in the root folder where the .py script file is. It uses logs to detect plugins[, and this is because it is meant to be mainly used on other's games. (LSPDFR support and yada-yada...)
