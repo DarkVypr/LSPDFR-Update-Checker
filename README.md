@@ -37,9 +37,15 @@ The **"hardcoded"** array is used for plugins that aren't on LCPDFR.com, and are
 
 <h4><ins>Deprecated</ins></h4>
 
-Finally the **"deprecated"** array is used for plugins that cause issues, are outdated and no longer supported, or have better alternatives. You can specify the reason for deprecation by adding a string to the JSON. If you would like no text, just put *null*. The text will show up right next to the plugin, example:
+The **"deprecated"** array is used for plugins that cause issues, are outdated and no longer supported, or have better alternatives. You can specify the reason for deprecation by adding a string to the JSON. If you would like no text, just put *null*. The text will show up right next to the plugin, example:
 
 ![Removal Example](https://i.darkvypr.com/removal-ex.jpg)
+
+<h4><ins>Flags</ins></h4>
+
+Finally the **"flags"** array is used to check the log for common issues. As you can see, in the JSON there are 2 properties. "r" is a shorthand for RegExp, and it's purpose is simple. Any expression that is put in this field will be tested against the user's log. If there is a match, this means that a common error was found, and the program will display this at runtime. Whatever is in the "desc" field will be displayed. Example:
+
+![Flag Example](https://i.darkvypr.com/flag-example.jpg)
 
 # Adding an ID
 
@@ -55,6 +61,6 @@ This script will also attempt to find the version of RNUI installed. It kind wor
 
 # Results
 
-Here is one of the various outputs you will see:
+Here is one of the various outputs you will see when checking a log:
 
-![Example Check](https://i.darkvypr.com/example-check.jpg)
+![Example Check](https://i.darkvypr.com/example-run.jpg)
