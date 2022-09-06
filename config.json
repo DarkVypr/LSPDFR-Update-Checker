@@ -31,7 +31,7 @@
         "APIExample",
         "City Callouts",
         "Corrupt Callouts",
-        "Dangerous Criminal Callouts Pack - Trevor\\, Michael\\, Franklin",
+        "Dangerous Criminal Callouts Pack - Trevor\\\\, Michael\\\\, Franklin",
         "DutchCallouts",
         "FIB HRT Callouts",
         "French Callout",
@@ -49,6 +49,13 @@
         "K9 Callouts",
         "AirportCallouts",
         "CrazyCallouts",
+        "belicCallouts",
+        "LSPD First Response",
+        "IPT.Common",
+        "DefinitiveCallouts",
+        "DeadlyWeapons2",
+        "RAGENativeUI",
+        "outfitToggler",
         "PursuitPack"
     ],
     "hardcoded": {
@@ -60,6 +67,7 @@
         "UltimateBackup": "1.8.7.0",
         "SimpleCallouts": "1.3.5.2",
         "OfficerporciPlugin": "1.9.0.8",
+        "CoastalCallouts": "3.1.8046.41915",
         "AttemptedCrimeCallouts": "1.7.2.1"
     },
     "deprecated": {
@@ -85,7 +93,13 @@
         "bizzare callouts": "(Temp Deprecation, Author Specified)",
         "Callout": "(Literally The Worst Name Ever lmao)",
         "Traffic Control": "(Replaced by StopThePed and Scene Manager)",
+        "Officer_Status_Plugin": "(Replaced by GrammarPolice's Features)",
         "StraysCallouts": null,
+        "TrafficTool": null,
+        "TrafficEvents": null,
+        "SaferChasesRPH": null,
+        "NormalCallouts": null,
+        "Lincoln18calls": null,
         "CodeRedCallouts": null,
         "Code 3 Callouts": null,
 		"BankCallouts": null,
@@ -103,5 +117,23 @@
         "SergeantLSPDFR": null,
         "VariousCallouts": null,
         "CheepCallouts": null
-    }
+    },
+    "flags":[
+        {
+            "r":"^.*LSPD First Response\\: Exception message\\: Index was out of range\\. Must be non-negative and less than the size of the collection.*PoliceSmartRadio\\.DisplayHandler.*$",
+            "desc":"- Unknown Issue With PoliceSmartRadio Display Index, It Is Advised That You Delete PoliceSmartRadio."
+        },
+        {
+            "r":"(Attempted to read or write protected memory)(.*ActualResolution)",
+            "desc":"- You Have An Out Of Date RageNativeUI. Please Update It."
+        },
+        {
+            "r":"(Attempted to read or write protected memory)(?!((.*)ActualResolution))",
+            "desc":"- You Might Have An Out Of Date RageNativeUI; Try Updating It. Follow Up Indicating If This Issue Is Solved."
+        },
+        {
+            "r":"(System\\.Enum\\.TryParseEnum)(.*)(System\\.Windows\\.Forms\\.KeysConverter)",
+            "desc":"- There Is An Invalid Keybind. Please See My Reply."
+        }
+    ]
 }

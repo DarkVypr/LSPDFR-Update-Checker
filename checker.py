@@ -4,7 +4,6 @@ import re
 from pprint import pprint
 from packaging import version
 import requests
-import time
 import json
 
 config = open("./config.json")
@@ -33,7 +32,7 @@ def compareVersions(inst, ltst):
 
 
 def searchFiles(files):
-    r = re.compile("^(.*)RagePluginHook(.*)?.log$")
+    r = re.compile("^(.*)RagePluginHook(.*)?.log$", re.I)
     searchedFiles = list(filter(r.match, files))
     return searchedFiles
 
@@ -71,7 +70,6 @@ def getNameVersion(plugins):
     return cleanedList
 
 # Base game version checkers
-
 
 def checkRAGEVersion(log):
     rageVersionR = re.compile(
@@ -135,6 +133,15 @@ def checkNATIVEUIVersion(log):
         return f"\033[92mRAGENativeUI.dll version is: \033[1m{nativeVersion} (Latest)\033[0m"
     return "\033[91mRAGENativeUI.dll version is: \033[1m{}, Current: \033[1m{}. (<!> OUTDATED <!>).\033[0m".format(nativeVersion, config["main"]["nativeui"])
 
+def checkForKnownIssues(fulllog):
+    issues = []
+    for i in config["flags"]:
+        r = re.compile(i["r"], flags= re.S | re.M | re.I)
+        search = re.findall(r, fulllog)
+        if len(search) < 1:
+            continue
+        issues.append(i["desc"])
+    return issues
 
 files = os.listdir('./')
 
@@ -143,15 +150,31 @@ logExists = searchFiles(files)
 if not logExists:
     raise Exception(
         '\033[91mThere is no log file in this folder; Drop one in. :P\033[0m')
-    exit(1)
-
-print()
-print('\033[4m\033[1mCHEKCING BASE GAME VERSIONS:\033[0m')
-print()
 
 log = open('./' + logExists[0], 'r', encoding="utf8")
-log = log.read().split('\n')
+fulllog = log.read()
+log = fulllog.split('\n')
 
+# Check Log for Common Shit & Flag It If Found
+
+print()
+print('\033[4m\033[1mCHEKCING FOR KNOWN LOG ISSUES:\033[0m')
+issues = checkForKnownIssues(fulllog)
+if len(issues) < 1:
+    print("\n\033[92m\033[1mNo Issues Detected\033[0m")
+else:
+    for i in issues:
+        print("\n" + f"\033[91m\033[1m{i}\033[0m")
+print()
+print()
+print('----------')
+print()
+print()
+
+# Start Update Checking
+
+print('\033[4m\033[1mCHEKCING BASE GAME VERSIONS:\033[0m')
+print()
 print(checkGTAVersion(log))
 print(checkRAGEVersion(log))
 print(checkLSPDFRVersion(log))
@@ -248,6 +271,9 @@ for i in pluginVersions:
     # time.sleep(1)
 
 # Make it all pretty
+print()
+print()
+print('----------')
 print()
 print()
 print("\033[4mThe following plugins are \033[92mup-to-date:\033[0m")
