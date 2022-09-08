@@ -138,6 +138,14 @@
         {
             "r":"(Processing cache while it's still in use - one or more subcalls may have caused the thread to yield)",
             "desc":"- Random Crash Occured. There Is No Fix To This Issue, And You Probably Won't Get It Again (Processing Cache While It's Still In Use)."
+        },
+        {
+            "r":"(terminated because it caused the game to freeze)",
+            "desc":"- Your Plugin Timeout Threshold is too low. Launch RAGE then immediately hold shift. Change \"Plugin Timeout Threshold\" to 60000."
+        },
+        {
+            "r":"(System\\.Collections\\.Generic\\.Dictionary`2\\.get_Item\\(TKey key\\))(.*)(at BetterPresence\\.Main)",
+            "desc":"- You need to update BetterPresence."
         }
     ]
 }
