@@ -69,4 +69,4 @@ You can run your own test log by using this file. It will produce the same resul
 
 https://files.darkvypr.com/RagePluginHook-Test.log
 
-Just save it as a .txt file.
+Just save it as a .log file.
