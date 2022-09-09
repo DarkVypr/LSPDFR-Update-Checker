@@ -64,3 +64,9 @@ This script will also attempt to find the version of RNUI installed. It kind wor
 Here is one of the various outputs you will see when checking a log:
 
 ![Example Check](https://i.darkvypr.com/example-run.jpg)
+
+You can run your own test log by using this file. It will produce the same results as above:
+
+https://files.darkvypr.com/RagePluginHook-Test.log
+
+Just save it as a .log file.
