@@ -91,6 +91,7 @@
         "PlateCheckerRemastered": "(In StopThePed)",
         "SearchWarrant": "(In StopThePed)",
         "bizzare callouts": "(Temp Deprecation, Author Specified)",
+        "Seatbelt Observation": "(Replaced By Plain Sight)",
         "Callout": "(Literally The Worst Name Ever lmao)",
         "Traffic Control": "(Replaced by StopThePed and Scene Manager)",
         "Officer_Status_Plugin": "(Replaced by GrammarPolice's Features)",
@@ -146,6 +147,10 @@
         {
             "r":"(System\\.Collections\\.Generic\\.Dictionary`2\\.get_Item\\(TKey key\\))(.*)(at BetterPresence\\.Main)",
             "desc":"- You need to update BetterPresence."
+        },
+        {
+            "r":"Rage\\.Ped\\.get_SeatIndex\\(\\)",
+            "desc":"- You are on an old version of RAGE. This issue was fixed in the most recent build, update it using the tutorial below."
         }
     ]
 }
