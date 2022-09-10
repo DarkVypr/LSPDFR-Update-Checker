@@ -142,15 +142,19 @@
         },
         {
             "r":"(terminated because it caused the game to freeze)",
-            "desc":"- Your Plugin Timeout Threshold is too low. Launch RAGE then immediately hold shift. Change \"Plugin Timeout Threshold\" to 60000."
+            "desc":"- Your Plugin Timeout Threshold Is Too Low. Launch RAGE Then Immediately Hold Shift. Change \"Plugin Timeout Threshold\" To 60000."
         },
         {
             "r":"(System\\.Collections\\.Generic\\.Dictionary`2\\.get_Item\\(TKey key\\))(.*)(at BetterPresence\\.Main)",
-            "desc":"- You need to update BetterPresence."
+            "desc":"- You Need To Update BetterPresence."
         },
         {
             "r":"Rage\\.Ped\\.get_SeatIndex\\(\\)",
-            "desc":"- You are on an old version of RAGE. This issue was fixed in the most recent build, update it using the tutorial below."
+            "desc":"- You Are On An Old Version Of RAGE. This Issue Was Fixed In The Most Recent Build, Update It Using The Tutorial Below."
+        },
+        {
+            "r":"Error while hiding ambient game blips(.*)",
+            "desc":"- You Need To Go Into Your GTAV\\lspdfr\\lspdfr.ini And Change 'Main.DisableGameBlipHiding' To 'true'"
         }
     ]
 }
