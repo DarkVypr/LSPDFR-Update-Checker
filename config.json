@@ -155,6 +155,10 @@
         {
             "r":"Error while hiding ambient game blips(.*)",
             "desc":"- You Need To Go Into Your GTAV\\lspdfr\\lspdfr.ini And Change 'Main.DisableGameBlipHiding' To 'true'"
+        },
+        {
+            "r":"Could not find a part of the path(.*)Plugins.LSPDFR.UltimateBackup.DefaultRegions\\.xml(.*)",
+            "desc":"- You Made An Error Inside Of DefaultRegions.xml, Or The File Is Missing."
         }
     ]
 }
