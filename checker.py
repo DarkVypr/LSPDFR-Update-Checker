@@ -158,7 +158,7 @@ log = fulllog.split('\n')
 # Check Log for Common Shit & Flag It If Found
 
 print()
-print('\033[4m\033[1mCHEKCING FOR KNOWN LOG ISSUES:\033[0m')
+print('\033[4m\033[1mCHECKING FOR KNOWN LOG ISSUES:\033[0m')
 issues = checkForKnownIssues(fulllog)
 if len(issues) < 1:
     print("\n\033[92m\033[1mNo Issues Detected\033[0m")
@@ -173,7 +173,7 @@ print()
 
 # Start Update Checking
 
-print('\033[4m\033[1mCHEKCING BASE GAME VERSIONS:\033[0m')
+print('\033[4m\033[1mCHECKING BASE GAME VERSIONS:\033[0m')
 print()
 print(checkGTAVersion(log))
 print(checkRAGEVersion(log))
@@ -196,7 +196,7 @@ pluginVersions = getNameVersion(section)
 print('----------')
 print()
 print()
-print('\033[4m\033[1mCHEKCING PLUGIN VERSIONS:\033[0m')
+print('\033[4m\033[1mCHECKING PLUGIN VERSIONS:\033[0m')
 print()
 print("Detected", len(pluginVersions), "plugins..")
 print()
