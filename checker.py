@@ -1,3 +1,4 @@
+from asyncio import base_futures
 from logging import exception
 import os
 import re
@@ -211,6 +212,7 @@ lspdfrRegex = re.compile(
 removal = []
 badPlugins = [] # Plugins that aren't blacklisted or hardcoded, and don't have an ID. They will error out if checked, never use them.
 ignored = []
+incorrect = []
 
 # Searches for the plugin to get the ID from JSON file, then appends it to the list as the 2nd index.
 for i in pluginVersions:
@@ -222,7 +224,13 @@ for i in pluginVersions:
             badPlugins.append(i[0])
             removal.append(i[0])
         continue
-    if i[0] in config["blacklist"] or config["hardcoded"].get(i[0]):
+    for j in config["incorrect"]: # Checks if the plugin is installed wrong.
+        if i[0] == j["name"]:
+            info = f"{i[0]}, Current Folder: GTAV/plugins/LSPDFR - Correct Folder: {j['path']}" if j['path'] else f"{i[0]}, Current Folder: GTAV/plugins/LSPDFR - Correct Folder: [Unknown]"
+            incorrect.append(info)
+            badPlugins.append(i[0])
+        continue
+    if i[0] in config["blacklist"] or config["hardcoded"].get(i[0]) or i[0] in badPlugins:
         continue
     if not ids.get(i[0]):
         badPlugins.append(i[0])
@@ -233,7 +241,7 @@ for i in pluginVersions:
 update = []
 ok = []
 
-# Searches for versions according to the LCPDFR.com API, and compares them against the installed version.
+# Searches for versions according to the LCPDFR.com API, and compares them against the installed version. Also manages bad plugins and incorrectly installed plugins.
 for i in pluginVersions:
     print(i)
     if i[0] in badPlugins:
@@ -276,7 +284,7 @@ print()
 print('----------')
 print()
 print()
-print("\033[4mThe following plugins are \033[92mup-to-date:\033[0m")
+print("\033[1m\033[4mThe following plugins are \033[92mup-to-date:\033[0m")
 print()
 print('\n'.join(ok))
 print()
@@ -285,7 +293,7 @@ print('----------')
 print()
 print()
 if len(update) > 0:
-    print("\033[4mThe following plugins \033[93mneed to be updated:\033[0m")
+    print("\033[1m\033[4mThe following plugins \033[93mneed to be updated:\033[0m")
     print()
     print('\n'.join(update))
     print()
@@ -294,7 +302,7 @@ if len(update) > 0:
     print()
     print()
 if len(removal) > 0:
-    print("\033[4mThe following plugins \033[91mneed to be removed as they are deprecated, issue-ridden, or redundant:\033[0m")
+    print("\033[1m\033[4mThe following plugins \033[91mneed to be removed as they are deprecated, issue-ridden, or redundant:\033[0m")
     print()
     print('\n'.join(removal))
     print()
@@ -302,8 +310,17 @@ if len(removal) > 0:
     print('----------')
     print()
     print()
+if len(incorrect) > 0:
+    print("\033[1m\033[4mThe following plugins \033[96mare installed incorrectly:\033[0m")
+    print()
+    print('\n'.join(incorrect))
+    print()
+    print()
+    print('----------')
+    print()
+    print()
 if len(ignored) > 0:
-    print("\033[4mThe following plugins were \033[94mignored:\033[0m")
+    print("\033[1m\033[4mThe following plugins were \033[94mignored:\033[0m")
     print()
     print('\n'.join(ignored))
     print()

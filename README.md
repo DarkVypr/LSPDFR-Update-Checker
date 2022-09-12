@@ -43,9 +43,18 @@ The **"deprecated"** array is used for plugins that cause issues, are outdated a
 
 <h4><ins>Flags</ins></h4>
 
-Finally the **"flags"** array is used to check the log for common issues. As you can see, in the JSON there are 2 properties. "r" is a shorthand for RegExp, and it's purpose is simple. Any expression that is put in this field will be tested against the user's log. If there is a match, this means that a common error was found, and the program will display this at runtime. Whatever is in the "desc" field will be displayed. Example:
+The **"flags"** array is used to check the log for common issues. As you can see, in the JSON there are 2 properties. "r" is a shorthand for RegExp, and it's purpose is simple. Any expression that is put in this field will be tested against the user's log. If there is a match, this means that a common error was found, and the program will display this at runtime. Whatever is in the "desc" field will be displayed. Example:
 
 ![Flag Example](https://i.darkvypr.com/flag-example.jpg)
+
+<h4><ins>Incorrect Installs</ins></h4>
+
+Finally the **"incorrect"** array is used to check the log for plugins that aren't in the right folders. Some people mistakenly put **RAGENativeUI** among others into the `plugins/LSPDFR` folder. As we know, this is incorrect.
+
+The "name" key is used for the plugin/dll name. It will be the trigger. If a plugin is found with this string, the user will be notified. The "path" key is used for the correct path that the plugin/script should be installed in. This is useful because some plugins are handled by RAGE, not LSPDFR, hence the `plugins/LSPDFR` directory being incorrect. Example:
+
+
+![Incorrect Example](https://i.darkvypr.com/incorrect-example.jpg)
 
 # Adding an ID
 
@@ -63,10 +72,10 @@ This script will also attempt to find the version of RNUI installed. It kind wor
 
 Here is one of the various outputs you will see when checking a log:
 
-![Example Check](https://i.darkvypr.com/example-run.jpg)
+![Example Check](https://i.darkvypr.com/test-check.jpg)
 
 You can run your own test log by using this file. It will produce the same results as above:
 
-https://files.darkvypr.com/RagePluginHook-Test.log
+https://files.darkvypr.com/RagePluginHook-TestFile.log
 
 Just save it as a .log file.

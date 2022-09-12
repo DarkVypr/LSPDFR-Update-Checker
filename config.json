@@ -50,11 +50,9 @@
         "AirportCallouts",
         "CrazyCallouts",
         "belicCallouts",
-        "LSPD First Response",
-        "IPT.Common",
         "DefinitiveCallouts",
         "DeadlyWeapons2",
-        "RAGENativeUI",
+        "PoliceMenu",
         "outfitToggler",
         "PursuitPack"
     ],
@@ -96,6 +94,7 @@
         "Traffic Control": "(Replaced by StopThePed and Scene Manager)",
         "Officer_Status_Plugin": "(Replaced by GrammarPolice's Features)",
         "StraysCallouts": null,
+        "RepeatOffender": null,
         "TrafficTool": null,
         "TrafficEvents": null,
         "SaferChasesRPH": null,
@@ -159,6 +158,24 @@
         {
             "r":"Could not find a part of the path(.*)Plugins.LSPDFR.UltimateBackup.DefaultRegions\\.xml(.*)",
             "desc":"- You Made An Error Inside Of DefaultRegions.xml, Or The File Is Missing."
+        }
+    ],
+    "incorrect":[
+        {
+            "name":"LemonUI.SHVDN3",
+            "path":"GTAV/scripts (Ensure ScriptHookVDotNet Is Also Installed)"
+        },
+        {
+            "name":"LSPD First Response",
+            "path":"GTAV Root"
+        },
+        {
+            "name":"IPT.Common",
+            "path":"GTAV Root"
+        },
+        {
+            "name":"RAGENativeUI",
+            "path":"GTAV Root"
         }
     ]
 }
