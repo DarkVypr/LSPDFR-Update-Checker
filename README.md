@@ -66,7 +66,7 @@ Adding an ID is pretty self explanitory, just make sure that the plugin name is 
 
 # RAGENativeUI Versions
 
-This script will also attempt to find the version of RNUI installed. It kind works?... It requires a plugin to send the version inside of the log however. Popular callouts like Section136 and etc do this so it works 60% of the time.
+This script will also attempt to find the version of RNUI installed. It kind of works?... It requires a plugin to send the version inside of the log however. Popular callouts like Section136 and etc do this so it works 60% of the time.
 
 # Results
 
