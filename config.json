@@ -54,6 +54,7 @@
         "DeadlyWeapons2",
         "PoliceMenu",
         "outfitToggler",
+        "CommonCallouts",
         "PursuitPack"
     ],
     "hardcoded": {
@@ -93,6 +94,8 @@
         "Callout": "(Literally The Worst Name Ever lmao)",
         "Traffic Control": "(Replaced by StopThePed and Scene Manager)",
         "Officer_Status_Plugin": "(Replaced by GrammarPolice's Features)",
+        "checkup-plugin": "(Replaced by GrammarPolice's Feature)",
+        "SecurityPlus": "(Replaced by Security+ Beta REVAMPED)",
         "StraysCallouts": null,
         "RepeatOffender": null,
         "TrafficTool": null,
@@ -128,7 +131,7 @@
             "desc":"- You Have An Out Of Date RageNativeUI. Please Update It."
         },
         {
-            "r":"(Attempted to read or write protected memory)(?!((.*)ActualResolution))",
+            "r":"(?<!(blips\\: System\\.AccessViolationException\\: ))(Attempted to read or write protected memory)(?!((.*)ActualResolution))",
             "desc":"- You Might Have An Out Of Date RageNativeUI; Try Updating It. Follow Up Indicating If This Issue Is Solved."
         },
         {
@@ -153,7 +156,7 @@
         },
         {
             "r":"Error while hiding ambient game blips(.*)",
-            "desc":"- You Need To Go Into Your GTAV\\lspdfr\\lspdfr.ini And Change 'Main.DisableGameBlipHiding' To 'true'"
+            "desc":"- Go Into Your GTAV\\lspdfr\\lspdfr.ini And Change 'Main.DisableGameBlipHiding' To 'true'"
         },
         {
             "r":"Could not find a part of the path(.*)Plugins.LSPDFR.UltimateBackup.DefaultRegions\\.xml(.*)",
@@ -176,6 +179,10 @@
         {
             "name":"RAGENativeUI",
             "path":"GTAV Root"
+        },
+        {
+            "name":"ClearTheWayV",
+            "path":"GTAV/plugins"
         }
     ]
 }
