@@ -87,6 +87,7 @@
         "FootPursuitAid": "(In StopThePed)",
         "Keep Calm": "(In StopThePed/Causes Crashes)",
         "YetAnotherPartnerMod": "(In StopThePed)",
+        "OJScenarios": "(Requires Callout Manager Which Is Outdated)",
         "PlateCheckerRemastered": "(In StopThePed)",
         "SearchWarrant": "(In StopThePed)",
         "bizzare callouts": "(Temp Deprecation, Author Specified)",
@@ -97,6 +98,8 @@
         "checkup-plugin": "(Replaced by GrammarPolice's Feature)",
         "SecurityPlus": "(Replaced by Security+ Beta REVAMPED)",
         "StraysCallouts": null,
+        "AverageCallouts": null,
+        "GangCallouts": null,
         "RepeatOffender": null,
         "TrafficTool": null,
         "TrafficEvents": null,
@@ -161,6 +164,10 @@
         {
             "r":"Could not find a part of the path(.*)Plugins.LSPDFR.UltimateBackup.DefaultRegions\\.xml(.*)",
             "desc":"- You Made An Error Inside Of DefaultRegions.xml, Or The File Is Missing."
+        },
+        {
+            "r":"Method not found: 'Void Stealth\\.Common\\.Natives\\.Functions\\.CallByHash",
+            "desc":"- You Are Missing Stealth.Common. Download It From The Link, And Install Into Your GTAV Root."
         }
     ],
     "incorrect":[
