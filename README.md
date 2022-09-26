@@ -12,7 +12,7 @@ As I add new things, and develop new features to this program, you should natura
 
 To use this, all you have to do is place a **RagePluginHook.log** file in the root folder where the .py script file is. It uses logs to detect plugins[, and this is because it is meant to be mainly used on other's games. (LSPDFR support and yada-yada...)
 
-# Options
+# Configuration
 
 In **config.json**, there are a few arrays which will affect how the program checks.
 
