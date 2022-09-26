@@ -47,6 +47,12 @@ The **"flags"** array is used to check the log for common issues. As you can see
 
 ![Flag Example](https://i.darkvypr.com/flag-example.jpg)
 
+I have also added a new field to the flags parameter. The **"smart"** tag is useful when you have a RegExp that could match a broad term of issues. For example, in some logs, there will be a *"file not found"* issue. This is a bit vauge, and this feature is present to help. If you put a **RegExp** in the **smart** field, te script will check each inital match for that RegExp. It's hard to explain, and pictures speak 1000 words:
+
+![Smart Flag Example](https://i.darkvypr.com/smart-flags.jpg)
+
+Hope you can understand it better with that... 🤒
+
 <h4><ins>Incorrect Installs</ins></h4>
 
 Finally the **"incorrect"** array is used to check the log for plugins that aren't in the right folders. Some people mistakenly put **RAGENativeUI** among others into the `plugins/LSPDFR` folder. As we know, this is incorrect.

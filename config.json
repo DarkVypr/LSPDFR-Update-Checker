@@ -127,47 +127,63 @@
     "flags":[
         {
             "r":"^.*LSPD First Response\\: Exception message\\: Index was out of range\\. Must be non-negative and less than the size of the collection.*PoliceSmartRadio\\.DisplayHandler.*$",
-            "desc":"- Unknown Issue With PoliceSmartRadio Display Index, It Is Advised That You Delete PoliceSmartRadio."
+            "desc":"- Unknown Issue With PoliceSmartRadio Display Index, It Is Advised That You Delete PoliceSmartRadio.",
+            "smart":null
         },
         {
             "r":"(Attempted to read or write protected memory)(.*ActualResolution)",
-            "desc":"- You Have An Out Of Date RageNativeUI. Please Update It."
+            "desc":"- You Have An Out Of Date RageNativeUI. Please Update It.",
+            "smart":null
         },
         {
             "r":"(?<!(blips\\: System\\.AccessViolationException\\: ))(Attempted to read or write protected memory)(?!((.*)ActualResolution))",
-            "desc":"- You Might Have An Out Of Date RageNativeUI; Try Updating It. Follow Up Indicating If This Issue Is Solved."
+            "desc":"- You Might Have An Out Of Date RageNativeUI; Try Updating It. Follow Up Indicating If This Issue Is Solved.",
+            "smart":null
         },
         {
             "r":"(System\\.Enum\\.TryParseEnum)(.*)(System\\.Windows\\.Forms\\.KeysConverter)",
-            "desc":"- There Is An Invalid Keybind. Please See My Reply."
+            "desc":"- There Is An Invalid Keybind. Please See My Reply.",
+            "smart":null
         },
         {
             "r":"(Processing cache while it's still in use - one or more subcalls may have caused the thread to yield)",
-            "desc":"- Random Crash Occured. There Is No Fix To This Issue, And You Probably Won't Get It Again (Processing Cache While It's Still In Use)."
+            "desc":"- Random Crash Occured. There Is No Fix To This Issue, And You Probably Won't Get It Again (Processing Cache While It's Still In Use).",
+            "smart":null
         },
         {
             "r":"(terminated because it caused the game to freeze)",
-            "desc":"- Your Plugin Timeout Threshold Is Too Low. Launch RAGE Then Immediately Hold Shift. Change \"Plugin Timeout Threshold\" To 60000."
+            "desc":"- Your Plugin Timeout Threshold Is Too Low. Launch RAGE Then Immediately Hold Shift. Change \"Plugin Timeout Threshold\" To 60000.",
+            "smart":null
         },
         {
             "r":"(System\\.Collections\\.Generic\\.Dictionary`2\\.get_Item\\(TKey key\\))(.*)(at BetterPresence\\.Main)",
-            "desc":"- You Need To Update BetterPresence."
+            "desc":"- You Need To Update BetterPresence.",
+            "smart":null
         },
         {
             "r":"Rage\\.Ped\\.get_SeatIndex\\(\\)",
-            "desc":"- You Are On An Old Version Of RAGE. This Issue Was Fixed In The Most Recent Build, Update It Using The Tutorial Below."
+            "desc":"- You Are On An Old Version Of RAGE. This Issue Was Fixed In The Most Recent Build, Update It Using The Tutorial Below.",
+            "smart":null
         },
         {
             "r":"Error while hiding ambient game blips(.*)",
-            "desc":"- Go Into Your GTAV\\lspdfr\\lspdfr.ini And Change 'Main.DisableGameBlipHiding' To 'true'"
+            "desc":"- Go Into Your GTAV\\lspdfr\\lspdfr.ini And Change 'Main.DisableGameBlipHiding' To 'true'",
+            "smart":null
         },
         {
             "r":"Could not find a part of the path(.*)Plugins.LSPDFR.UltimateBackup.DefaultRegions\\.xml(.*)",
-            "desc":"- You Made An Error Inside Of DefaultRegions.xml, Or The File Is Missing."
+            "desc":"- You Made An Error Inside Of DefaultRegions.xml, Or The File Is Missing.",
+            "smart":null
         },
         {
             "r":"Method not found: 'Void Stealth\\.Common\\.Natives\\.Functions\\.CallByHash",
-            "desc":"- You Are Missing Stealth.Common. Download It From The Link, And Install Into Your GTAV Root."
+            "desc":"- You Are Missing Stealth.Common. Download It From The Link, And Install Into Your GTAV Root.",
+            "smart":null
+        },
+        {
+            "r":"Could not load file or assembly([^\n]+)$",
+            "desc":"- You Are Missing Files From The Following Plugin. Please Re-Install:",
+            "smart":"'(.*?),"
         }
     ],
     "incorrect":[

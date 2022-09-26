@@ -139,7 +139,16 @@ def checkForKnownIssues(fulllog):
     for i in config["flags"]:
         r = re.compile(i["r"], flags= re.S | re.M | re.I)
         search = re.findall(r, fulllog)
+        search = list(dict.fromkeys(search))
         if len(search) < 1:
+            continue
+        if i["smart"]:
+            rSmart = re.compile(i["smart"])
+            for j in search:
+                smartSearch = re.findall(rSmart, j)
+                if not smartSearch:
+                    continue
+                issues.append(f'{i["desc"]} {smartSearch[0]}.')
             continue
         issues.append(i["desc"])
     return issues
