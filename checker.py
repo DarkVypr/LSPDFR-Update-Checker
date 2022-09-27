@@ -1,5 +1,3 @@
-from asyncio import base_futures
-from logging import exception
 import os
 import re
 from pprint import pprint
