@@ -163,34 +163,6 @@ def removePluginErrors(plugins):
         continue
     return goodPlugins
 
-def getGametime(log):
-    start = log[0]
-    end = log[len(log) - 2]
-    startTime = re.match('\[.*\]', start)
-    if not startTime:
-        return None
-    startTime = re.sub('\[|\]', '', startTime.group())
-    endTime = re.match('\[.*\]', end)
-    if not endTime:
-        return None
-    endTime = re.sub('\[|\]', '', endTime.group())
-    format = "%m/%d/%Y %I:%M:%S %p.%f"
-    startTime = datetime.strptime(startTime, format)
-    endTime = datetime.strptime(endTime, format)
-    delta = endTime - startTime
-    return delta
-    
-
-def getLogDate(log):
-    start = log[0]
-    startTime = re.match('\[.*\]', start)
-    if not startTime:
-        return None
-    startTime = re.sub('\[|\]', '', startTime.group())
-    format = "%m/%d/%Y %I:%M:%S %p.%f"
-    startTime = datetime.strptime(startTime, format)
-    return startTime
-
 files = os.listdir('./')
 
 logExists = searchFiles(files)
@@ -202,30 +174,6 @@ if not logExists:
 log = open('./' + logExists[0], 'r', encoding="utf8")
 fulllog = log.read()
 log = fulllog.split('\n')
-
-# Session Info
-gametime = getGametime(log)
-if not gametime:
-    gametime = 'Unknown'
-else:
-    gametime = humanize.precisedelta(gametime, format="%0.0f")
-logDate = getLogDate(log)
-logDelta = 'Unknown'
-if not logDate:
-    logDate = 'Unknown'
-else:
-    logDelta = humanize.precisedelta(datetime.now() - logDate, suppress=["seconds"], format="%0.0f")
-    logDate = logDate.strftime("%A, %B %d, %Y at %I:%M %p")
-print()
-print('\033[4m\033[1mCHECKING SESSION INFO:\033[0m')
-print()
-print(f"\033[92mLog made on: \033[1m{logDate} ({logDelta})\033[0m")
-print(f"\033[92mGame was open for: \033[1m{gametime}\033[0m")
-print()
-print()
-print('----------')
-print()
-print()
 
 # Check Log for Common Shit & Flag It If Found
 
