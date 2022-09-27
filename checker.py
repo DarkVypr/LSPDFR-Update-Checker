@@ -151,7 +151,17 @@ def checkForKnownIssues(fulllog):
                 issues.append(f'{i["desc"]} {smartSearch[0]}.')
             continue
         issues.append(i["desc"])
+    issues = list(dict.fromkeys(issues))
     return issues
+
+def removePluginErrors(plugins):
+    goodPlugins = []
+    r = re.compile("^(.*)(LSPD First Response: )(.*?, )(Version=\d+\.\d+\.\d+\.\d+, )(Culture=.*?, )(PublicKeyToken=)(\w|\d)*$", re.I)
+    for i in plugins:
+        if re.match(r, i):
+            goodPlugins.append(i)
+        continue
+    return goodPlugins
 
 files = os.listdir('./')
 
@@ -200,6 +210,8 @@ startIndex = log.index(startLine)+1
 endIndex = log.index(endLine)
 
 section = log[startIndex:endIndex]
+
+section = removePluginErrors(section)
 
 pluginVersions = getNameVersion(section)
 
