@@ -1,6 +1,6 @@
 # Setting It Up
 
-This program is relatively easy to set up. I personally just use it inside of VS code. If you don't know what VSC is/how to use it, that is on you to figure out. Once you have it opened in VS code, you can use the terminal to install these: `pip install requests packaging`.
+This program is relatively easy to set up. I personally just use it inside of VS code. If you don't know what VSC is/how to use it, that is on you to figure out. Once you have it opened in VS code, you can use the terminal to install these: `pip install requests packaging humanize`.
 
 If you have any further questions, make an issue here, or dm me on my LSPDFR profile. I will be adding to this readme with any steps that I forgot to state on setting this program up.
 
