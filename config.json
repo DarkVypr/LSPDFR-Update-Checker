@@ -207,6 +207,10 @@
         {
             "name":"ClearTheWayV",
             "path":"GTAV/plugins"
+        },
+        {
+            "name":"EUPMenu",
+            "path":"GTAV/plugins"
         }
     ]
 }
