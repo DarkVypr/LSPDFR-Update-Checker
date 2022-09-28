@@ -132,7 +132,7 @@
             "smart":null
         },
         {
-            "r":"(Attempted to read or write protected memory)(.*ActualResolution)",
+            "r":"(Attempted to read or write protected memory|System.AccessViolationException)(.*ActualResolution)",
             "desc":"- You Have An Out Of Date RageNativeUI. Please Update It.",
             "smart":null
         },
