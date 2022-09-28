@@ -185,6 +185,11 @@
             "r":"Could not load file or assembly([^\n]+)$",
             "desc":"- You Are Missing Files From The Following Plugin. Please Re-Install:",
             "smart":"'(.*?),"
+        },
+        {
+            "r":"Cannot load invalid model with hash.[^\n]*",
+            "desc":"- There is an issue with the following model:",
+            "smart":"(?:Cannot load invalid model with hash\\s)(.[^\n|.]*)"
         }
     ],
     "incorrect":[
