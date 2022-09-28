@@ -4,8 +4,6 @@ from pprint import pprint
 from packaging import version
 import requests
 import json
-import humanize
-from datetime import datetime, timedelta, date
 
 config = open("./config.json")
 config = json.load(config)
