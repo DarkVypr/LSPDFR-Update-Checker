@@ -56,6 +56,7 @@
         "outfitToggler",
         "CommonCallouts",
         "Ambient FX",
+        "MoreRadioChatter",
         "PursuitPack"
     ],
     "hardcoded": {
@@ -216,6 +217,14 @@
         {
             "name":"EUPMenu",
             "path":"GTAV/plugins"
+        },
+        {
+            "name":"Newtonsoft.Json",
+            "path":"GTAV Root"
+        },
+        {
+            "name":"XSerializer",
+            "path":"GTAV Root"
         }
     ]
 }
