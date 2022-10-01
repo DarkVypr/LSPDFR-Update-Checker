@@ -5,11 +5,11 @@ from packaging import version
 import requests
 import json
 
-config = open("./config.json")
-config = json.load(config)
+with open("./config.json") as config:
+    config = json.load(config)
 
-ids = open("./ids.json")
-ids = json.load(ids)
+with open("./ids.json") as ids: 
+    ids = json.load(ids)
 
 # Clear The Terminal After Every Run
 os.system("cls")
@@ -162,19 +162,17 @@ def removePluginErrors(plugins):
     return goodPlugins
 
 files = os.listdir('./')
-
 logExists = searchFiles(files)
 
 if not logExists:
     raise Exception(
         '\033[91mThere is no log file in this folder; Drop one in. :P\033[0m')
 
-log = open('./' + logExists[0], 'r', encoding="utf8")
-fulllog = log.read()
-log = fulllog.split('\n')
+with open('./' + logExists[0], 'r', encoding="utf8") as log:
+    fulllog = log.read()
+    log = fulllog.split('\n')
 
 # Check Log for Common Shit & Flag It If Found
-
 print('\033[4m\033[1mCHECKING FOR KNOWN LOG ISSUES:\033[0m')
 issues = checkForKnownIssues(fulllog)
 if len(issues) < 1:
