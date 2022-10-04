@@ -99,6 +99,7 @@
         "checkup-plugin": "(Replaced by GrammarPolice's Feature)",
         "SecurityPlus": "(Replaced by Security+ Beta REVAMPED)",
         "StraysCallouts": null,
+        "FederalCallouts": null,
         "RichsPoliceEnhancements": null,
         "AverageCallouts": null,
         "GangCallouts": null,
@@ -191,6 +192,11 @@
             "r":"Cannot load invalid model with hash.[^\n]*",
             "desc":"- There is an issue with the following model:",
             "smart":"(?:Cannot load invalid model with hash\\s)(.[^\n|.]*)"
+        },
+        {
+            "r":"Exception message: Could not find a part of the path\\s'.*'",
+            "desc":"- There is an issue with the following file:",
+            "smart":"(?:'.*?\\(Grand Theft Auto V|GTAV)\\.*?)(.*[^\\.|'])"
         }
     ],
     "incorrect":[
