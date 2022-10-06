@@ -146,7 +146,7 @@ def checkForKnownIssues(fulllog):
                 smartSearch = re.findall(rSmart, j)
                 if not smartSearch:
                     continue
-                issues.append(f'{i["desc"]} {smartSearch[0]}.')
+                issues.append(f'{i["desc"]} {smartSearch[0]}')
             continue
         issues.append(i["desc"])
     issues = list(dict.fromkeys(issues))

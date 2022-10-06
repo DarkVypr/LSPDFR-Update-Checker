@@ -70,6 +70,12 @@ In the **ids.json** file, the numbers next to all of the plugins correspond to t
 
 Adding an ID is pretty self explanitory, just make sure that the plugin name is the same as the .dll name.
 
+# Hash Converting
+
+There is an included **hashConvert.py** file which pulls all its hashes from **hashes.json**. It's pretty basic, but quicker than googling I guess. This is useful when you get this error, or you find a GTAV hash in a log.
+
+![Hash Error Example](https://i.darkvypr.com/hash-example.jpg)
+
 # RAGENativeUI Versions
 
 This script will also attempt to find the version of RNUI installed. It kind of works?... It requires a plugin to send the version inside of the log however. Popular callouts like Section136 and etc do this so it works 60% of the time.
