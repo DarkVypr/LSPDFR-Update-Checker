@@ -80,6 +80,7 @@
         "CalloutManager": "(Replaced by ForceACallout or Callout Interface)",
         "tacco_highway_callouts": "(Needs Traffic Policer & Deprecated)",
         "ChillCallouts": "(Needs Traffic Policer & Deprecated)",
+        "Chill Callouts": "(Needs Traffic Policer & Deprecated)",
         "PanicButton": "(Included in UltimateBackup)",
         "HighWay Callouts": "(Terrible Requirements & Deprecated)",
         "Corpse Inspection": "(Seems Unnecessary w/ Stop The Ped)",

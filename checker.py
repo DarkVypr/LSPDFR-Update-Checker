@@ -277,7 +277,7 @@ for i in pluginVersions:
             ignored.append(i[0] + ", (Ignore because: Blacklisted)")
             continue
     pluginInfo = requests.get(
-        f'https://www.lcpdfr.com/applications/downloadsng/interface/api.php?do=checkForUpdates&fileId={i[2]}&textOnly=true'
+        f'https://www.lcpdfr.com/applications/downloadsng/interface/api.php?fileId={i[2]}&textOnly=true&do=checkForUpdates',
     )
     if pluginInfo.status_code >= 500:
         ignored.append(
