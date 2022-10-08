@@ -11,6 +11,7 @@ def getHash(hash, hashes):
         return '(Unknown Hash)'
     return carName
 
+
 # Ask the user for the hash.
 hash = input("Input the car's hash: ")
 

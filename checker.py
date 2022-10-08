@@ -8,7 +8,7 @@ import json
 with open("./config.json") as config:
     config = json.load(config)
 
-with open("./ids.json") as ids: 
+with open("./ids.json") as ids:
     ids = json.load(ids)
 
 # Clear The Terminal After Every Run
@@ -25,7 +25,8 @@ def compareVersions(inst, ltst):
         return True
     except:
         print()
-        print(f"\033[91mISSUE PARSING VERSION NUMBER \033[1minst: {inst} ltst: {ltst}\033[0m")
+        print(
+            f"\033[91mISSUE PARSING VERSION NUMBER \033[1minst: {inst} ltst: {ltst}\033[0m")
         print()
         return False
 
@@ -69,6 +70,7 @@ def getNameVersion(plugins):
     return cleanedList
 
 # Base game version checkers
+
 
 def checkRAGEVersion(log):
     rageVersionR = re.compile(
@@ -132,10 +134,11 @@ def checkNATIVEUIVersion(log):
         return f"\033[92mRAGENativeUI.dll version is: \033[1m{nativeVersion} (Latest)\033[0m"
     return "\033[91mRAGENativeUI.dll version is: \033[1m{}, Current: \033[1m{}. (<!> OUTDATED <!>).\033[0m".format(nativeVersion, config["main"]["nativeui"])
 
+
 def checkForKnownIssues(fulllog):
     issues = []
     for i in config["flags"]:
-        r = re.compile(i["r"], flags= re.S | re.M | re.I)
+        r = re.compile(i["r"], flags=re.S | re.M | re.I)
         search = re.findall(r, fulllog)
         search = list(dict.fromkeys(search))
         if len(search) < 1:
@@ -152,14 +155,17 @@ def checkForKnownIssues(fulllog):
     issues = list(dict.fromkeys(issues))
     return issues
 
+
 def removePluginErrors(plugins):
     goodPlugins = []
-    r = re.compile("^(.*)(LSPD First Response: )(.*?, )(Version=\d+\.\d+\.\d+\.\d+, )(Culture=.*?, )(PublicKeyToken=)(\w|\d)*$", re.I)
+    r = re.compile(
+        "^(.*)(LSPD First Response: )(.*?, )(Version=\d+\.\d+\.\d+\.\d+, )(Culture=.*?, )(PublicKeyToken=)(\w|\d)*$", re.I)
     for i in plugins:
         if re.match(r, i):
             goodPlugins.append(i)
         continue
     return goodPlugins
+
 
 files = os.listdir('./')
 logExists = searchFiles(files)
@@ -226,7 +232,8 @@ lspdfrRegex = re.compile(
     "https:\/\/www.lcpdfr.com\/downloads\/gta5mods\/(.*)\/(\d+)-(.*)")
 
 removal = []
-badPlugins = [] # Plugins that aren't blacklisted or hardcoded, and don't have an ID. They will error out if checked, never use them.
+# Plugins that aren't blacklisted or hardcoded, and don't have an ID. They will error out if checked, never use them.
+badPlugins = []
 ignored = []
 incorrect = []
 
@@ -240,9 +247,10 @@ for i in pluginVersions:
             badPlugins.append(i[0])
             removal.append(i[0])
         continue
-    for j in config["incorrect"]: # Checks if the plugin is installed wrong.
+    for j in config["incorrect"]:  # Checks if the plugin is installed wrong.
         if i[0] == j["name"]:
-            info = f"{i[0]}, Current Folder: GTAV/plugins/LSPDFR - Correct Folder: {j['path']}" if j['path'] else f"{i[0]}, Current Folder: GTAV/plugins/LSPDFR - Correct Folder: [Unknown]"
+            info = f"{i[0]}, Current Folder: GTAV/plugins/LSPDFR - Correct Folder: {j['path']}" if j[
+                'path'] else f"{i[0]}, Current Folder: GTAV/plugins/LSPDFR - Correct Folder: [Unknown]"
             incorrect.append(info)
             badPlugins.append(i[0])
         continue
@@ -327,7 +335,8 @@ if len(removal) > 0:
     print()
     print()
 if len(incorrect) > 0:
-    print("\033[1m\033[4mThe following plugins \033[96mare installed incorrectly:\033[0m")
+    print(
+        "\033[1m\033[4mThe following plugins \033[96mare installed incorrectly:\033[0m")
     print()
     print('\n'.join(incorrect))
     print()
