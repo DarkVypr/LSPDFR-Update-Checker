@@ -71,7 +71,6 @@ def getNameVersion(plugins):
 
 # Base game version checkers
 
-
 def checkRAGEVersion(log):
     rageVersionR = re.compile(
         "(.*)RAGE\sPlugin\sHook(.*)for(.*)", re.IGNORECASE)
