@@ -71,6 +71,7 @@ def getNameVersion(plugins):
 
 # Base game version checkers
 
+
 def checkRAGEVersion(log):
     rageVersionR = re.compile(
         "(.*)RAGE\sPlugin\sHook(.*)for(.*)", re.IGNORECASE)
@@ -139,9 +140,9 @@ def checkForKnownIssues(fulllog):
     for i in config["flags"]:
         r = re.compile(i["r"], flags=re.S | re.M | re.I)
         search = re.findall(r, fulllog)
-        search = list(dict.fromkeys(search))
         if len(search) < 1:
             continue
+        search = list(dict.fromkeys(search))
         if i["smart"]:
             rSmart = re.compile(i["smart"])
             for j in search:
@@ -166,6 +167,22 @@ def removePluginErrors(plugins):
     return goodPlugins
 
 
+def getCommandLine(log):
+    r = re.compile(
+        "(?:.*Command line option\s)(?:\"|'|-)(.*?)(?:'|\")?(?:\s.*)")
+    options = re.findall(r, log)
+    return options
+
+
+def timeoutThresh(log):
+    timeout = re.findall("(?:.*?Read value:\s)(\d{5})", log)
+    if not timeout:
+        return '(None)'
+    return timeout[0]
+
+# Clean separator.
+separator = "\n\n----------\n\n"
+
 files = os.listdir('./')
 logExists = searchFiles(files)
 
@@ -177,7 +194,23 @@ with open('./' + logExists[0], 'r', encoding="utf8") as log:
     fulllog = log.read()
     log = fulllog.split('\n')
 
-# Check Log for Common Shit & Flag It If Found
+# Check Log for small details that might be useful.
+commandLine = getCommandLine(fulllog)
+if len(commandLine) > 0:
+    commandLine = ', '.join(list(dict.fromkeys(commandLine)))
+else:
+    commandLine = '(None)'
+
+thresh = timeoutThresh(fulllog)
+
+print('\033[4m\033[1mLOG DETAILS:\033[0m')
+print()
+print('\033[1m\033[92mCommand Line Options:\033[0m', f"\033[1m{commandLine}\033[0m")
+print()
+print('\033[1m\033[92mPlugin Timeout Threshold:\033[0m', f"\033[1m{thresh}\033[0m")
+print(separator)
+
+# Check Log for Common Shit & Flag It If Found.
 print('\033[4m\033[1mCHECKING FOR KNOWN LOG ISSUES:\033[0m')
 issues = checkForKnownIssues(fulllog)
 if len(issues) < 1:
@@ -185,14 +218,9 @@ if len(issues) < 1:
 else:
     for i in issues:
         print("\n" + f"\033[91m\033[1m{i}\033[0m")
-print()
-print()
-print('----------')
-print()
-print()
+print(separator)
 
 # Start Update Checking
-
 print('\033[4m\033[1mCHECKING BASE GAME VERSIONS:\033[0m')
 print()
 print(checkGTAVersion(log))
@@ -200,8 +228,6 @@ print(checkRAGEVersion(log))
 print(checkLSPDFRVersion(log))
 print()
 print(checkNATIVEUIVersion(log))
-print()
-print()
 
 startLine = findStart(log)
 endLine = findEnd(log)
@@ -215,17 +241,11 @@ section = removePluginErrors(section)
 
 pluginVersions = getNameVersion(section)
 
-print('----------')
-print()
-print()
+print(separator)
 print('\033[4m\033[1mCHECKING PLUGIN VERSIONS:\033[0m')
 print()
 print("Detected", len(pluginVersions), "plugins..")
-print()
-print()
-print('----------')
-print()
-print()
+print(separator)
 
 lspdfrRegex = re.compile(
     "https:\/\/www.lcpdfr.com\/downloads\/gta5mods\/(.*)\/(\d+)-(.*)")
@@ -302,54 +322,30 @@ for i in pluginVersions:
     # time.sleep(1)
 
 # Make it all pretty
-print()
-print()
-print('----------')
-print()
-print()
+print(separator)
 if len(ok) > 0:
     print("\033[1m\033[4mThe following plugins \033[92mare up-to-date:\033[0m")
     print()
     print('\n'.join(ok))
-    print()
-    print()
-    print('----------')
-    print()
-    print()
+    print(separator)
 if len(update) > 0:
     print("\033[1m\033[4mThe following plugins \033[93mneed to be updated:\033[0m")
     print()
     print('\n'.join(update))
-    print()
-    print()
-    print('----------')
-    print()
-    print()
+    print(separator)
 if len(removal) > 0:
     print("\033[1m\033[4mThe following plugins \033[91mneed to be removed as they are deprecated, issue-ridden, or redundant:\033[0m")
     print()
     print('\n'.join(removal))
-    print()
-    print()
-    print('----------')
-    print()
-    print()
+    print(separator)
 if len(incorrect) > 0:
     print(
         "\033[1m\033[4mThe following plugins \033[96mare installed incorrectly:\033[0m")
     print()
     print('\n'.join(incorrect))
-    print()
-    print()
-    print('----------')
-    print()
-    print()
+    print(separator)
 if len(ignored) > 0:
     print("\033[1m\033[4mThe following plugins \033[94mwere ignored:\033[0m")
     print()
     print('\n'.join(ignored))
-    print()
-    print()
-    print('----------')
-    print()
-    print()
+    print(separator)
